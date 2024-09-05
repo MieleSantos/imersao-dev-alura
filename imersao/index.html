@@ -42,7 +42,25 @@
                             // Limpar a tabela
                             tabelaTipoMedalhas.innerHTML = "";
                             let dadosMedalhas = dadosMedalhass.filter(medalha => medalha.Medalha === value);
+                            
+                               // Cria o elemento <table>
+                            const table = document.createElement('table');
+                            table.border = "1"; // Define a borda da tabela
 
+                            // Cria o <thead> para o cabeçalho da tabela
+                            const thead = document.createElement('thead');
+                            const headerRow = document.createElement('tr'); // Linha do cabeçalho
+
+                            // Cabeçalhos da tabela
+                            const headers = ['Medalha', 'Atleta', 'Esporte', 'Prova'] //'Dia'];
+                            headers.forEach(headerText => {
+                                const th = document.createElement('th');
+                                th.textContent = headerText; // Adiciona o texto no <th>
+                                tabelaTipoMedalhas.appendChild(th); // Adiciona o <th> na linha do cabeçalho
+                            });
+
+                            thead.appendChild(headerRow); // Adiciona a linha do cabeçalho ao <thead>
+                            table.appendChild(thead); 
                             dadosMedalhas.forEach(medalha => {
                                 let novaLinha = document.createElement('tr');
                                 let tdMedalha = document.createElement('td');
@@ -84,10 +102,35 @@
         </section> -->
 
         <section id="busca">
-            <h2>Buscar Atleta</h2>
-            <input type="text" placeholder="Digite o nome do atleta">
-            <button>Pesquisar</button>
-        </section>
+                <input type="text" placeholder="Digite o nome do atleta">
+                <button>Pesquisar</button>
+            </section>
+            <section class="resultados-pesquisa">
+                <div class="item-resultado">
+                    <h2>
+                        <a href="#" target="_blank">Rebeca Andrade</a>
+                    </h2>
+                    <p class="descricao-meta">Rebeca Andrade é uma das maiores ginastas brasileiras de todos os tempos. Com sua força, elegância e determinação, ela conquistou o coração dos brasileiros e se tornou um verdadeiro ícone do esporte nacional.</p>
+                    <a href="https://pt.wikipedia.org/wiki/Rebeca_Andrade" target="_blank">Mais informações</a>
+                </div>
+                <div class="item-resultado">
+                    <h2>
+                        <a href="#" target="_blank">Rayssa Leal</a>
+                    </h2>
+                    <p class="descricao-meta">Rayssa Leal, a Fadinha, é uma skatista brasileira que conquistou o mundo com seu talento e carisma. Aos poucos anos, ela já coleciona títulos e inspira milhões de jovens.</p>
+                    <a href="https://pt.wikipedia.org/wiki/Rayssa_Leal" target="_blank">Mais informações</a>
+                </div>
+                
+                <div class="item-resultado">
+                    <h2>
+                        <a href="#" target="_blank">Beatriz Souza</a>
+                    </h2>
+                    <p class="descricao-meta">Beatriz Souza é uma judoca brasileira que se destacou nos Jogos Olímpicos, trazendo orgulho para o país. Sua força e técnica a colocaram entre as melhores do mundo.</p>
+                    <a href="https://pt.wikipedia.org/wiki/Beatriz_Souza" target="_blank">Mais informações</a>
+                </div>
+                
+            </section>
+            <script src="dados.js"></script>
     </main>
     <footer>
         <p>2024 - Atletas do Brasil. Todos os direitos reservados</p>
