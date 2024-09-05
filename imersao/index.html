@@ -1,537 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="assests/css/style.css">
-        <title>Olimpíadas 2024</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assests/css/style.css">
+    <title>Olimpíadas 2024</title>
+</head>
 
-    <body>
-        <header>
-            <h1>Atletas do Brasil</h1>
-            <nav>
-                <ul>
-                    <li><a href="#ranking">Ranking de Medalhas</a></li>
-                    <li><a href="#busca">Buscar Atleta</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
+<body>
+    <header>
+        <h1>Atletas do Brasil</h1>
+        <nav>
+            <ul>
+                <li><a href="#ranking">Ranking de Medalhas</a></li>
+                <li><a href="#busca">Buscar Atleta</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="ranking">
+            <h2>Buscar por tipo de medalha</h2>
 
+            <select id="tpmedalha">
+                <option value="Ouro">Ouro</option>
+                <option value="Prata">Prata</option>
+                <option value="Bronze">Bronze</option>
+            </select>
+
+            <button id="mostrarDados">Pesquisar</button>
             <section id="ranking">
-                <h2>Medalhistas por esporte</h2>
-                <table id="ranking2">
+                <table id="ranking3">
+                    <!--Carregando dados-->
+                    <script src="assests/js/filter_data.js"></script>
                     <script>
-                        
-const dadosMedalhas = [
-    {
-        "Atleta": "Beatriz Souza",
-        "Dia": "2 de agosto",
-        "Esporte": "Judô",
-        "Medalha": "Ouro",
-        "Prova": "Mais de 78 kg feminino"
-    },
-    {
-        "Atleta": "Rebeca Andrade",
-        "Dia": "5 de agosto",
-        "Esporte": "Ginástica",
-        "Medalha": "Ouro",
-        "Prova": "Solo feminino"
-    },
-    {
-        "Atleta": "Ana Patrícia Ramos",
-        "Dia": "9 de agosto",
-        "Esporte": "Voleibol de praia",
-        "Medalha": "Ouro",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "\nEduarda Santos Lisboa",
-        "Dia": "9 de agosto",
-        "Esporte": "Voleibol de praia",
-        "Medalha": "Ouro",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Willian Lima",
-        "Dia": "28 de julho",
-        "Esporte": "Judô",
-        "Medalha": "Prata",
-        "Prova": "Até 66 kg masculino"
-    },
-    {
-        "Atleta": "Caio Bonfim",
-        "Dia": "1 de agosto",
-        "Esporte": "Atletismo",
-        "Medalha": "Prata",
-        "Prova": "20 km marcha atlética masculina"
-    },
-    {
-        "Atleta": "Rebeca Andrade",
-        "Dia": "1 de agosto",
-        "Esporte": "Ginástica",
-        "Medalha": "Prata",
-        "Prova": "Individual geral feminino"
-    },
-    {
-        "Atleta": "Rebeca Andrade",
-        "Dia": "3 de agosto",
-        "Esporte": "Ginástica",
-        "Medalha": "Prata",
-        "Prova": "Salto feminino"
-    },
-    {
-        "Atleta": "Tatiana Weston-Webb",
-        "Dia": "5 de agosto",
-        "Esporte": "Surfe",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Isaquias Queiroz",
-        "Dia": "9 de agosto",
-        "Esporte": "Canoagem",
-        "Medalha": "Prata",
-        "Prova": "C-1 1000 metros masculino"
-    },
-    {
-        "Atleta": "Adriana",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Angelina",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Ana Vitória",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Antônia",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Duda Sampaio",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Gabi Nunes",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Gabi Portilho",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Jheniffer",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Kerolin",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Lauren",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Lorena",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Luciana",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Ludmila",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Marta",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Priscila",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Rafaelle Souza",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Tainá",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Tamires",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Tarciane",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Thaís",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Yasmim",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Vitória Yaya",
-        "Dia": "10 de agosto",
-        "Esporte": "Futebol",
-        "Medalha": "Prata",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Larissa Pimenta",
-        "Dia": "28 de julho",
-        "Esporte": "Judô",
-        "Medalha": "Bronze",
-        "Prova": "Até 52 kg feminino"
-    },
-    {
-        "Atleta": "Rayssa Leal",
-        "Dia": "28 de julho",
-        "Esporte": "Skate",
-        "Medalha": "Bronze",
-        "Prova": "Street feminino"
-    },
-    {
-        "Atleta": "Rebeca Andrade",
-        "Dia": null,
-        "Esporte": "Ginástica",
-        "Medalha": "Bronze",
-        "Prova": "Equipes femininas"
-    },
-    {
-        "Atleta": "Jade Barbosa",
-        "Dia": null,
-        "Esporte": "Ginástica",
-        "Medalha": "Bronze",
-        "Prova": "Equipes femininas"
-    },
-    {
-        "Atleta": "Lorrane Oliveira",
-        "Dia": null,
-        "Esporte": "Ginástica",
-        "Medalha": "Bronze",
-        "Prova": "Equipes femininas"
-    },
-    {
-        "Atleta": "Flávia Saraiva",
-        "Dia": null,
-        "Esporte": "Ginástica",
-        "Medalha": "Bronze",
-        "Prova": "Equipes femininas"
-    },
-    {
-        "Atleta": "Júlia Soares",
-        "Dia": null,
-        "Esporte": "Ginástica",
-        "Medalha": "Bronze",
-        "Prova": "Equipes femininas"
-    },
-    {
-        "Atleta": "Daniel Cargnin",
-        "Dia": "3 de agosto",
-        "Esporte": "Judô",
-        "Medalha": "Bronze",
-        "Prova": "Equipes mistas"
-    },
-    {
-        "Atleta": "Leonardo Gonçalves",
-        "Dia": "3 de agosto",
-        "Esporte": "Judô",
-        "Medalha": "Bronze",
-        "Prova": "Equipes mistas"
-    },
-    {
-        "Atleta": "Willian Lima",
-        "Dia": "3 de agosto",
-        "Esporte": "Judô",
-        "Medalha": "Bronze",
-        "Prova": "Equipes mistas"
-    },
-    {
-        "Atleta": "Rafael Macedo",
-        "Dia": "3 de agosto",
-        "Esporte": "Judô",
-        "Medalha": "Bronze",
-        "Prova": "Equipes mistas"
-    },
-    {
-        "Atleta": "Guilherme Schimidt",
-        "Dia": "3 de agosto",
-        "Esporte": "Judô",
-        "Medalha": "Bronze",
-        "Prova": "Equipes mistas"
-    },
-    {
-        "Atleta": "Rafael Silva",
-        "Dia": "3 de agosto",
-        "Esporte": "Judô",
-        "Medalha": "Bronze",
-        "Prova": "Equipes mistas"
-    },
-    {
-        "Atleta": "Larissa Pimenta",
-        "Dia": "3 de agosto",
-        "Esporte": "Judô",
-        "Medalha": "Bronze",
-        "Prova": "Equipes mistas"
-    },
-    {
-        "Atleta": "Ketleyn Quadros",
-        "Dia": "3 de agosto",
-        "Esporte": "Judô",
-        "Medalha": "Bronze",
-        "Prova": "Equipes mistas"
-    },
-    {
-        "Atleta": "Rafaela Silva",
-        "Dia": "3 de agosto",
-        "Esporte": "Judô",
-        "Medalha": "Bronze",
-        "Prova": "Equipes mistas"
-    },
-    {
-        "Atleta": "Beatriz Souza",
-        "Dia": "3 de agosto",
-        "Esporte": "Judô",
-        "Medalha": "Bronze",
-        "Prova": "Equipes mistas"
-    },
-    {
-        "Atleta": "Beatriz Ferreira",
-        "Dia": "3 de agosto",
-        "Esporte": "Boxe",
-        "Medalha": "Bronze",
-        "Prova": "Peso leve feminino"
-    },
-    {
-        "Atleta": "Gabriel Medina",
-        "Dia": "5 de agosto",
-        "Esporte": "Surfe",
-        "Medalha": "Bronze",
-        "Prova": "Masculino"
-    },
-    {
-        "Atleta": "Augusto Akio",
-        "Dia": "7 de agosto",
-        "Esporte": "Skate",
-        "Medalha": "Bronze",
-        "Prova": "Park masculino"
-    },
-    {
-        "Atleta": "Edival Pontes",
-        "Dia": "8 de agosto",
-        "Esporte": "Taekwondo",
-        "Medalha": "Bronze",
-        "Prova": "−68 kg masculino"
-    },
-    {
-        "Atleta": "Alison dos Santos",
-        "Dia": "9 de agosto",
-        "Esporte": "Atletismo",
-        "Medalha": "Bronze",
-        "Prova": "400m com barreiras"
-    },
-    {
-        "Atleta": "Ana Carolina",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Ana Cristina",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Diana",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Gabi",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Júlia",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Lorenne",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Natália",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Nyeme",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Macris",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Tainara",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Thaísa",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Roberta",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    },
-    {
-        "Atleta": "Rosamaria",
-        "Dia": "10 de agos",
-        "Esporte": "Voleibol",
-        "Medalha": "Bronze",
-        "Prova": "Feminino"
-    }
-];
 
-                        const tabelaMedalhas = document.querySelector('#ranking2');
-                    
-                        dadosMedalhas.forEach(medalha => {
-                          const novaLinha = document.createElement('tr');
-                          const tdMedalha = document.createElement('td');
-                          tdMedalha.textContent = medalha.Medalha;
-                          const tdAtleta = document.createElement('td');
-                          tdAtleta.textContent = medalha.Atleta;
-                          const tdEsporte = document.createElement('td');
-                          tdEsporte.textContent = medalha.Esporte;
-                          const tdProva = document.createElement('td');
-                          tdProva.textContent = medalha.Prova;
-                          const tdDia = document.createElement('td');
-                          tdDia.textContent = new Date(medalha.Dia).toLocaleDateString('pt-BR');
-                          novaLinha.appendChild(tdMedalha);
-                          novaLinha.appendChild(tdAtleta);
-                          novaLinha.appendChild(tdEsporte);
-                          novaLinha.appendChild(tdProva);
-                          //novaLinha.appendChild(tdDia);
-                          // ... adicionar as outras células à linha (tdEsporte, tdProva, tdDia)
-                          tabelaMedalhas.appendChild(novaLinha);
+                        let botao = document.getElementById('mostrarDados');
+                        let tabelaTipoMedalhas = document.querySelector('#ranking3');
+
+                        function filterMedalha(value, dadosMedalhass) {
+                            // Limpar a tabela
+                            tabelaTipoMedalhas.innerHTML = "";
+                            let dadosMedalhas = dadosMedalhass.filter(medalha => medalha.Medalha === value);
+
+                            dadosMedalhas.forEach(medalha => {
+                                let novaLinha = document.createElement('tr');
+                                let tdMedalha = document.createElement('td');
+
+                                tdMedalha.textContent = medalha.Medalha;
+                                let tdAtleta = document.createElement('td');
+                                tdAtleta.textContent = medalha.Atleta;
+                                let tdEsporte = document.createElement('td');
+                                tdEsporte.textContent = medalha.Esporte;
+                                let tdProva = document.createElement('td');
+                                tdProva.textContent = medalha.Prova;
+                                let tdDia = document.createElement('td');
+                                tdDia.textContent = new Date(medalha.Dia).toLocaleDateString('pt-BR');
+                                novaLinha.appendChild(tdMedalha);
+                                novaLinha.appendChild(tdAtleta);
+                                novaLinha.appendChild(tdEsporte);
+                                novaLinha.appendChild(tdProva);
+                                tabelaTipoMedalhas.appendChild(novaLinha);
+
+                            });
+                        }
+                        botao.addEventListener('click', () => {
+                            let select = document.getElementById('tpmedalha');
+                           
+                            let tabelaTipoMedalhas = document.querySelector('#ranking3');
+                            filterMedalha(select.value, dadosMedalhass); // Chama a função com a idade mínima
                         });
-                      </script>
+
+                    </script>
                 </table>
             </section>
-            <section id="busca">
-                <h2>Buscar Atleta</h2>
-                <input type="text" placeholder="Digite o nome do atleta">
-                <button>Pesquisar</button>
-            </section>
-        </main>
-        <footer>
-            <p>2024 - Atletas do Brasil. Todos os direitos reservados</p>
-            <p>Entre em contato pelo email: teste@atletas.com.br</p>
-        </footer>
-    </body>
+
+        </section>
+        <!--<section id="ranking">
+            <h2>Medalhistas por esporte</h2>
+            <table id="ranking2">
+                <script src="assests/js/ranking_atletas.js"></script>
+            </table>
+        </section> -->
+
+        <section id="busca">
+            <h2>Buscar Atleta</h2>
+            <input type="text" placeholder="Digite o nome do atleta">
+            <button>Pesquisar</button>
+        </section>
+    </main>
+    <footer>
+        <p>2024 - Atletas do Brasil. Todos os direitos reservados</p>
+        <p>Entre em contato pelo email: teste@atletas.com.br</p>
+    </footer>
+</body>
 
 </html>

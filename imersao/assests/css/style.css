@@ -76,7 +76,8 @@ table {
 }
 
 th, td {
-    padding: 1rem; /* Espaçamento interno das células */
+    /*padding: 1rem; /* Espaçamento interno das células */
+    padding: 8px 11px;
     text-align: center; /* Alinha o texto ao centro */
     border: 1px solid #30475E; /* Borda das células */
 }
@@ -90,6 +91,65 @@ td {
     background-color: #F5F7F8; /* Cor de fundo das células */
     color: #222831; /* Cor do texto */
 }
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #e0e0e0;
+    border: 2px solid #2c3e50;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 150px;
+}
+
+select:hover {
+    background-color: #d1d1d1;
+}
+
+select:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+/*table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    background-color: #30475E;
+    border: 1px solid #30475E;
+    table-layout: fixed; /* Para manter as colunas com tamanho fixo 
+}*/
+
+/*th, td {
+    padding: 8px 11px;
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap; /* Impede quebra de linha nas células 
+    overflow: hidden; /* Esconde o texto que passar do limite 
+    text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo 
+}*/
+
+/*th {
+    background-color: #4CAF50;
+    color: white;
+}*/
+
+/*tr:nth-child(even) {
+    background-color: #4CAF50;
+}*/
+
+/*tr:hover {
+    background-color: #4CAF50;
+    transition: background-color 0.2s ease-in-out;
+}*/
 
 /* Estiliza os inputs dentro das seções */
 section input {
@@ -128,39 +188,6 @@ footer {
     padding: 1rem 0; /* Espaçamento interno */
     width: 100%; /* Largura total da página */
     margin-top: auto;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 1em;
-    font-family: Arial, sans-serif;
-    background-color: #30475E;
-    border: 1px solid #30475E;
-    table-layout: fixed; /* Para manter as colunas com tamanho fixo */
-}
-
-th, td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: center;
-    white-space: nowrap; /* Impede quebra de linha nas células */
-    overflow: hidden; /* Esconde o texto que passar do limite */
-    text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-tr:nth-child(even) {
-    background-color: #4CAF50;
-}
-
-tr:hover {
-    background-color: #4CAF50;
-    transition: background-color 0.2s ease-in-out;
 }
 
 /* Responsividade para tablets */

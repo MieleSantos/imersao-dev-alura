@@ -470,3 +470,28 @@ const dadosMedalhas = [
         "Prova": "Feminino"
     }
 ];
+
+
+
+const tabelaMedalhas = document.querySelector('#ranking2');
+
+dadosMedalhas.forEach(medalha => {
+    const novaLinha = document.createElement('tr');
+    const tdMedalha = document.createElement('td');
+    tdMedalha.textContent = medalha.Medalha;
+    const tdAtleta = document.createElement('td');
+    tdAtleta.textContent = medalha.Atleta;
+    const tdEsporte = document.createElement('td');
+    tdEsporte.textContent = medalha.Esporte;
+    const tdProva = document.createElement('td');
+    tdProva.textContent = medalha.Prova;
+    const tdDia = document.createElement('td');
+    tdDia.textContent = new Date(medalha.Dia).toLocaleDateString('pt-BR');
+    novaLinha.appendChild(tdMedalha);
+    novaLinha.appendChild(tdAtleta);
+    novaLinha.appendChild(tdEsporte);
+    novaLinha.appendChild(tdProva);
+    //novaLinha.appendChild(tdDia);
+    tabelaMedalhas.appendChild(novaLinha);
+});
+
