@@ -6,6 +6,6 @@ Projeto desenvolvido na  Imersão dev com Gemini, onde foi feito usando javascri
 
 
 ## Busca por atleta
-![Home](imersao/assests/images/1.jpg)
+![Home](/assests/images/1.jpg)
 ## Busca por tipo de medalha que pode ser ouro, prata ou broze
-![Home](imersao/assests/images/2.jpg)
+![Home](/assests/images/2.jpg)
