@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assests/css/style.css">
+    <title>Olimpíadas 2024</title>
+</head>
+
+<body>
+    <header>
+        <h1>Atletas do Brasil</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Página inicial</a></li>
+                <li><a href="ranking_atleta.html">Ranking de Medalhas</a></li>
+                <li><a href="total_medalha.html">Total de Medalhas por gênero</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <section id="ranking">
+            <table id="ranking4">
+                <!--Carregando dados-->
+                <script src="assests/js/dados.js"></script>
+                <script>
+                    //function totalMedalha(){
+                    let tabelaTipoMedalhas = document.querySelector('#ranking4');
+
+
+                    // Cria o elemento <table>
+                    const table = document.createElement('table');
+                    table.border = "1"; // Define a borda da tabela
+
+                    // Cria o <thead> para o cabeçalho da tabela
+                    const thead = document.createElement('thead');
+                    const headerRow = document.createElement('tr'); // Linha do cabeçalho
+
+                    // Cabeçalhos da tabela
+                    const headers = ['gênero', 'ouro', 'prata', 'bronze','total'] //'Dia'];
+                    headers.forEach(headerText => {
+                        const th = document.createElement('th');
+                        th.textContent = headerText; // Adiciona o texto no <th>
+                        tabelaTipoMedalhas.appendChild(th); // Adiciona o <th> na linha do cabeçalho
+                    });
+
+                    thead.appendChild(headerRow); // Adiciona a linha do cabeçalho ao <thead>
+                    table.appendChild(thead);
+                    tabela_medalhas.forEach(medalha => {
+                        let novaLinha = document.createElement('tr');
+
+                        let tdGenero = document.createElement('td');
+                        tdGenero.textContent = medalha.gênero;
+                        let tdOuro = document.createElement('td');
+                        tdOuro.textContent = medalha.ouro;
+                        let tdPrata = document.createElement('td');
+                        tdPrata.textContent = medalha.prata;
+                        let tdBronze = document.createElement('td');
+                        tdBronze.textContent = medalha.bronze
+                        let tdTotal = document.createElement('td');
+                        tdTotal.textContent = medalha.total;
+
+                        novaLinha.appendChild(tdGenero);
+                        novaLinha.appendChild(tdOuro);
+                        novaLinha.appendChild(tdPrata);
+                        novaLinha.appendChild(tdBronze);
+                        novaLinha.appendChild(tdTotal);
+                        tabelaTipoMedalhas.appendChild(novaLinha);
+
+                    });
+                </script>
+            </table>
+        </section>
+        </section>
+
+    </main>
+    <footer>
+        <p>2024 - Atletas do Brasil. Todos os direitos reservados</p>
+        <p>Entre em contato pelo email: teste@atletas.com.br</p>
+    </footer>
+
+</body>
+
+</html>

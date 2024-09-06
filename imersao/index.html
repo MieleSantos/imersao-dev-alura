@@ -13,129 +13,28 @@
         <h1>Atletas do Brasil</h1>
         <nav>
             <ul>
-                <li><a href="#ranking">Ranking de Medalhas</a></li>
-                <li><a href="#busca">Buscar Atleta</a></li>
+                <li><a href="index.html">Página inicial</a></li>
+                <li><a href="ranking_atleta.html">Ranking de Medalhas</a></li>
+                <li><a href="total_medalha.html">Total de Medalhas por gênero</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="ranking">
-            <h2>Buscar por tipo de medalha</h2>
-
-            <select id="tpmedalha">
-                <option value="Ouro">Ouro</option>
-                <option value="Prata">Prata</option>
-                <option value="Bronze">Bronze</option>
-            </select>
-
-            <button id="mostrarDados">Pesquisar</button>
-            <section id="ranking">
-                <table id="ranking3">
-                    <!--Carregando dados-->
-                    <script src="assests/js/filter_data.js"></script>
-                    <script>
-
-                        let botao = document.getElementById('mostrarDados');
-                        let tabelaTipoMedalhas = document.querySelector('#ranking3');
-
-                        function filterMedalha(value, dadosMedalhass) {
-                            // Limpar a tabela
-                            tabelaTipoMedalhas.innerHTML = "";
-                            let dadosMedalhas = dadosMedalhass.filter(medalha => medalha.Medalha === value);
-                            
-                               // Cria o elemento <table>
-                            const table = document.createElement('table');
-                            table.border = "1"; // Define a borda da tabela
-
-                            // Cria o <thead> para o cabeçalho da tabela
-                            const thead = document.createElement('thead');
-                            const headerRow = document.createElement('tr'); // Linha do cabeçalho
-
-                            // Cabeçalhos da tabela
-                            const headers = ['Medalha', 'Atleta', 'Esporte', 'Prova'] //'Dia'];
-                            headers.forEach(headerText => {
-                                const th = document.createElement('th');
-                                th.textContent = headerText; // Adiciona o texto no <th>
-                                tabelaTipoMedalhas.appendChild(th); // Adiciona o <th> na linha do cabeçalho
-                            });
-
-                            thead.appendChild(headerRow); // Adiciona a linha do cabeçalho ao <thead>
-                            table.appendChild(thead); 
-                            dadosMedalhas.forEach(medalha => {
-                                let novaLinha = document.createElement('tr');
-                                let tdMedalha = document.createElement('td');
-
-                                tdMedalha.textContent = medalha.Medalha;
-                                let tdAtleta = document.createElement('td');
-                                tdAtleta.textContent = medalha.Atleta;
-                                let tdEsporte = document.createElement('td');
-                                tdEsporte.textContent = medalha.Esporte;
-                                let tdProva = document.createElement('td');
-                                tdProva.textContent = medalha.Prova;
-                                let tdDia = document.createElement('td');
-                                tdDia.textContent = new Date(medalha.Dia).toLocaleDateString('pt-BR');
-                                novaLinha.appendChild(tdMedalha);
-                                novaLinha.appendChild(tdAtleta);
-                                novaLinha.appendChild(tdEsporte);
-                                novaLinha.appendChild(tdProva);
-                                tabelaTipoMedalhas.appendChild(novaLinha);
-
-                            });
-                        }
-                        botao.addEventListener('click', () => {
-                            let select = document.getElementById('tpmedalha');
-                           
-                            let tabelaTipoMedalhas = document.querySelector('#ranking3');
-                            filterMedalha(select.value, dadosMedalhass); // Chama a função com a idade mínima
-                        });
-
-                    </script>
-                </table>
-            </section>
-
-        </section>
-        <!--<section id="ranking">
-            <h2>Medalhistas por esporte</h2>
-            <table id="ranking2">
-                <script src="assests/js/ranking_atletas.js"></script>
-            </table>
-        </section> -->
 
         <section id="busca">
-                <input type="text" placeholder="Digite o nome do atleta">
-                <button>Pesquisar</button>
-            </section>
-            <section class="resultados-pesquisa">
-                <div class="item-resultado">
-                    <h2>
-                        <a href="#" target="_blank">Rebeca Andrade</a>
-                    </h2>
-                    <p class="descricao-meta">Rebeca Andrade é uma das maiores ginastas brasileiras de todos os tempos. Com sua força, elegância e determinação, ela conquistou o coração dos brasileiros e se tornou um verdadeiro ícone do esporte nacional.</p>
-                    <a href="https://pt.wikipedia.org/wiki/Rebeca_Andrade" target="_blank">Mais informações</a>
-                </div>
-                <div class="item-resultado">
-                    <h2>
-                        <a href="#" target="_blank">Rayssa Leal</a>
-                    </h2>
-                    <p class="descricao-meta">Rayssa Leal, a Fadinha, é uma skatista brasileira que conquistou o mundo com seu talento e carisma. Aos poucos anos, ela já coleciona títulos e inspira milhões de jovens.</p>
-                    <a href="https://pt.wikipedia.org/wiki/Rayssa_Leal" target="_blank">Mais informações</a>
-                </div>
-                
-                <div class="item-resultado">
-                    <h2>
-                        <a href="#" target="_blank">Beatriz Souza</a>
-                    </h2>
-                    <p class="descricao-meta">Beatriz Souza é uma judoca brasileira que se destacou nos Jogos Olímpicos, trazendo orgulho para o país. Sua força e técnica a colocaram entre as melhores do mundo.</p>
-                    <a href="https://pt.wikipedia.org/wiki/Beatriz_Souza" target="_blank">Mais informações</a>
-                </div>
-                
-            </section>
-            <script src="dados.js"></script>
+            <h1 >Buscar Atleta olímpico 2024</h1>
+            <input type="text" placeholder="Digite o nome do atleta" id="campo-pesquisa">
+            <button onclick="pesquisar()">Pesquisar</button>
+        </section>
+        <section class="resultados-pesquisa" id="resultados-pesquisa"></section>
+
     </main>
     <footer>
         <p>2024 - Atletas do Brasil. Todos os direitos reservados</p>
-        <p>Entre em contato pelo email: teste@atletas.com.br</p>
+        <p>Entre em contato pelo email: mielesnts@gmail.com</p>
     </footer>
+    <script src="assests/js/dados.js"></script>
+    <script src="assests/js/app.js"></script>
 </body>
 
 </html>

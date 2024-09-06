@@ -235,8 +235,12 @@ section button:hover {
     color: #45474B; /* Cor do texto */
     margin: 0.5rem 0; /* Margem acima e abaixo */
 }
-
-
+h4 {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px;
+  }
 /* Estiliza o rodapé da página */
 footer {
     background-color: #30475E; /* Cor de fundo do rodapé */
